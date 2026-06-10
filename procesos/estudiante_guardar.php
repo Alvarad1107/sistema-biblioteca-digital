@@ -1,15 +1,28 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id'])) { header("Location: ../vistas/index.php"); exit(); }
-require '../config/conexion.php';
 
+if (!isset($_SESSION['correo'])) {
+    header("Location: index.php");
+    exit();
+}
+
+require 'conexion.php';
+
+// Recibimos los datos del formulario
 $carnet = $_POST['carnet'];
-$nombre = $_POST['nombre_completo'];
+$nombre_completo = $_POST['nombre_completo'];
+$correo = $_POST['correo'];
 $carrera = $_POST['carrera'];
 $telefono = $_POST['telefono'];
-$correo = $_POST['correo'];
 
-$conn->query("INSERT INTO estudiantes (carnet, nombre_completo, carrera, telefono, correo) VALUES ('$carnet', '$nombre', '$carrera', '$telefono', '$correo')");
-header("Location: ../vistas/estudiante_lista.php");
-exit();
+// Insertamos directamente en la tabla estudiantes
+$sql = "INSERT INTO estudiantes (carnet, nombre_completo, correo, carrera, telefono) 
+        VALUES ('$carnet', '$nombre_completo', '$correo', '$carrera', '$telefono')";
+
+if ($conn->query($sql) === TRUE) {
+    header("Location: estudiante_form.php?status=success");
+    exit();
+} else {
+    echo "Error al guardar el estudiante: " . $conn->error;
+}
 ?>
