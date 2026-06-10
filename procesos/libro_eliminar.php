@@ -1,12 +1,19 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id'])) { header("Location: ../vistas/index.php"); exit(); }
-require '../config/conexion.php';
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
+    exit();
+}
+
+require 'conexion.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $conn->query("DELETE FROM libros WHERE id = $id");
+    $sql = "DELETE FROM libros WHERE id = $id";
+    $conn->query($sql);
 }
-header("Location: ../vistas/libro_lista.php");
+
+header("Location: libro_lista.php");
 exit();
 ?>

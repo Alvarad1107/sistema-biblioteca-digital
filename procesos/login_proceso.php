@@ -1,29 +1,31 @@
 <?php
 session_start();
-require '../config/conexion.php';
+require 'conexion.php';
 
-$correo = $_POST['correo'];
-$clave = $_POST['clave'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $correo = $_POST['correo'];
+    $clave = $_POST['clave'];
 
-$sql = "SELECT id, nombre_completo, nivel_acceso, estado FROM usuarios WHERE correo = '$correo' AND clave = '$clave'";
-$resultado = $conn->query($sql);
+    $sql = "SELECT id, nombre_completo, correo, clave, nivel_acceso FROM usuarios WHERE correo = '$correo' AND clave = '$clave'";
+    $resultado = $conn->query($sql);
 
-if ($resultado->num_rows == 1) {
-    $usuario = $resultado->fetch_assoc();
-    
-    if ($usuario['estado'] == 'Activo') {
-        $_SESSION['usuario_id'] = $usuario['id'];
-        $_SESSION['nombre'] = $usuario['nombre_completo'];
-        $_SESSION['nivel_acceso'] = $usuario['nivel_acceso'];
+    if ($resultado && $resultado->num_rows > 0) {
+        $usuario = $resultado->fetch_assoc();
         
-        header("Location: ../vistas/dashboard.php");
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['nombre_completo'] = $usuario['nombre_completo'];
+        $_SESSION['correo'] = $usuario['correo'];
+        $_SESSION['nivel_acceso'] = $usuario['nivel_acceso'];
+
+        header("Location: dashboard.php");
         exit();
     } else {
-        header("Location: ../vistas/index.php?error=inactivo");
+    
+        header("Location: index.php?error=1");
         exit();
     }
 } else {
-    header("Location: ../vistas/index.php?error=credenciales");
+    header("Location: index.php");
     exit();
 }
 ?>

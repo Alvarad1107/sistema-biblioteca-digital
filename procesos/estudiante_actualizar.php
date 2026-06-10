@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $carrera = $_POST['carrera'];
     $telefono = $_POST['telefono'];
 
-    // Ejecutamos la actualización directa en la tabla estudiantes
     $sql = "UPDATE estudiantes SET 
             carnet = '$carnet', 
             nombre_completo = '$nombre_completo', 
@@ -26,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-
+       
         header("Location: student_lista.php"); 
         header("Location: estudiante_lista.php");
         exit();
