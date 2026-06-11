@@ -76,7 +76,7 @@ $resultado = $conn->query($sql);
                                     <td class="fw-bold"><?= htmlspecialchars($fila['id']) ?></td>
                                     <td><?= htmlspecialchars($fila['nombre']) ?></td>
                                     <td><?= htmlspecialchars($fila['descripcion']) ?></td>
-                                    <td>
+                                    <td class="text-nowrap">
                                         <a href="categoria_editar.php?id=<?= $fila['id'] ?>" class="btn btn-sm btn-action-edit me-2">Editar</a>
                                         <a href="categoria_eliminar.php?id=<?= $fila['id'] ?>" class="btn btn-sm btn-outline-danger fw-bold" onclick="return confirm('¿Eliminar esta categoría?');">Eliminar</a>
                                     </td>

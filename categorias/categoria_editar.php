@@ -47,6 +47,20 @@ if ($resultado && $resultado->num_rows > 0) {
         .form-control { border: 1px solid #cccccc; border-radius: 8px; padding: 12px; background-color: #ffffff; }
         .form-control:focus { border-color: #2b3a30; box-shadow: 0 0 0 0.2rem rgba(43, 58, 48, 0.25); }
         label { color: #2b3a30; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+        .btn-return {
+            color: #2b3a30;
+            background-color: #e2e8f0;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-return:hover {
+            background-color: #cbd5e1;
+            color: #2b3a30;
+        }
     </style>
 </head>
 <body>
