@@ -47,6 +47,8 @@ $resultado_cat = $conn->query($sql_cat);
         h2 { color: #2b3a30; font-weight: 700; }
         .btn-dark-green { background-color: #2b3a30; color: #ffffff; border: none; border-radius: 6px; font-weight: 500; padding: 0.6rem 1.5rem; transition: background-color 0.2s; }
         .btn-dark-green:hover { background-color: #1e2922; color: #ffffff; }
+        .btn-return { color: #2b3a30; background-color: #e2e8f0; border: none; border-radius: 6px; font-weight: 600; padding: 0.6rem 1.5rem; text-decoration: none; transition: background-color 0.2s; }
+        .btn-return:hover { background-color: #cbd5e1; color: #2b3a30; }
         .form-control, .form-select { border: 1px solid #cccccc; border-radius: 8px; padding: 12px; background-color: #ffffff; }
         .form-control:focus, .form-select:focus { border-color: #2b3a30; box-shadow: 0 0 0 0.2rem rgba(43, 58, 48, 0.25); }
         label { color: #2b3a30; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
@@ -112,7 +114,7 @@ $resultado_cat = $conn->query($sql_cat);
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="libro_lista.php" class="text-decoration-none text-secondary fw-bold">← Cancelar</a>
+                            <a href="libro_lista.php" class="btn-return">Cancelar</a>
                             <button type="submit" class="btn-dark-green">Actualizar Datos</button>
                         </div>
                     </form>

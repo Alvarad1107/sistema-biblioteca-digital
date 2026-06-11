@@ -80,7 +80,7 @@ if ($resultado && $resultado->num_rows > 0) {
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="categoria_lista.php" class="text-decoration-none text-secondary fw-bold">← Cancelar</a>
+                            <a href="categoria_lista.php" class="btn-return">Cancelar</a>
                             <button type="submit" class="btn-dark-green">Actualizar Datos</button>
                         </div>
                     </form>

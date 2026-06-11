@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+    header("Location: libro_lista.php?status=guardado");
     exit();
 }
 
-require 'conexion.php';
+require '../config/conexion.php';
 
 $codigo = $_POST['codigo'];
 $titulo = $_POST['titulo'];

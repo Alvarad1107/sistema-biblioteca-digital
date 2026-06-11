@@ -80,7 +80,7 @@ $resultado = $conn->query($sql);
                                     <td><?= htmlspecialchars($fila['autor']) ?></td>
                                     <td><?= htmlspecialchars($fila['categoria_nombre'] ?? 'Sin categoría') ?></td>
                                     <td class="fw-bold"><?= htmlspecialchars($fila['stock']) ?></td>
-                                    <td>
+                                    <td class="text-nowrap">
                                         <a href="libro_editar.php?id=<?= $fila['id'] ?>" class="btn btn-sm btn-action-edit me-2">Editar</a>
                                         <a href="libro_eliminar.php?id=<?= $fila['id'] ?>" class="btn btn-sm btn-outline-danger fw-bold" onclick="return confirm('¿Eliminar este libro?');">Eliminar</a>
                                     </td>

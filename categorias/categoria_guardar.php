@@ -1,23 +1,27 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+if (!isset($_SESSION['correo'])) {
+    header("Location: ../index.php");
     exit();
 }
 
-require 'conexion.php';
+require '../config/conexion.php';
 
-$nombre = $_POST['nombre'];
-$descripcion = $_POST['descripcion'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
 
-$sql = "INSERT INTO categorias (nombre, descripcion) VALUES ('$nombre', '$descripcion')";
+    $sql = "INSERT INTO categorias (nombre, descripcion) VALUES ('$nombre', '$descripcion')";
 
-if ($conn->query($sql) === TRUE) {
-    header("Location: categoria_form.php?status=success");
-    exit();
+    if ($conn->query($sql) === TRUE) {
+        header("Location: categoria_lista.php");
+        exit();
+    } else {
+        echo "Error: " . $conn->error;
+    }
 } else {
-    header("Location: categoria_form.php?status=error");
+    header("Location: categoria_lista.php");
     exit();
 }
 ?>
