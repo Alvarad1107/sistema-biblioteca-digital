@@ -136,7 +136,7 @@ if (isset($_SESSION['usuario_id'])) {
             </div>
 
             <div class="col-md-7 img-container d-none d-md-flex">
-                <img src="libros.png" alt="Ilustración de libros">
+                <img src="../assets/libros.png" alt="Ilustración de libros">
             </div>
         </div>
     </div>
