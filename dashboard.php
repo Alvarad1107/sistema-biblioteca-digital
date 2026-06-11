@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #e2e8f0; /* Fondo gris-azul claro del login */
+            background-color: #e2e8f0; 
             color: #333333;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -29,11 +29,11 @@ if (!isset($_SESSION['usuario_id'])) {
             font-size: 1.3rem;
         }
         .navbar-brand span {
-            color: #a8bba1; /* Tono verde claro para contraste */
+            color: #a8bba1; 
             font-weight: 400;
         }
         .main-card {
-            background-color: #f4f1ea; /* El beige del login */
+            background-color: #f4f1ea; 
             border: none;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -123,7 +123,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             <div class="module-card">
                                 <h4>Categorías</h4>
                                 <p>Registrar clasificaciones.</p>
-                                <a href="categoria_lista.php" class="btn-dark-green">Abrir</a>
+                                <a href="categorias/categoria_lista.php" class="btn-dark-green">Abrir</a>
                             </div>
                         </div>
 
@@ -131,7 +131,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             <div class="module-card">
                                 <h4>Libros</h4>
                                 <p>Gestión de inventario.</p>
-                                <a href="libro_lista.php" class="btn-dark-green">Abrir</a>
+                                <a href="libros/libro_lista.php" class="btn-dark-green">Abrir</a>
                             </div>
                         </div>
 
@@ -139,7 +139,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             <div class="module-card">
                                 <h4>Estudiantes</h4>
                                 <p>Gestión de usuarios/clientes.</p>
-                                <a href="estudiante_lista.php" class="btn-dark-green">Abrir</a>
+                                <a href="estudiantes/estudiante_lista.php" class="btn-dark-green">Abrir</a>
                             </div>
                         </div>
 

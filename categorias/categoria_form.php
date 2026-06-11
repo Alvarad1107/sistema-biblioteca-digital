@@ -5,6 +5,8 @@ if (!isset($_SESSION['usuario_id'])) {
     header("Location: index.php");
     exit();
 }
+require '../config/conexion.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -90,7 +92,7 @@ if (!isset($_SESSION['usuario_id'])) {
                         </div>
                         
                         <div class="d-flex justify-content-between">
-                            <a href="dashboard.php" class="btn btn-outline-secondary">Volver</a>
+                            <a href="../dashboard.php" class="btn btn-outline-secondary">Volver</a>
                             <button type="submit" class="btn btn-primary px-4">Guardar</button>
                         </div>
                     </form>

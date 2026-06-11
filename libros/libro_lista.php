@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-require 'conexion.php';
+require '../config/conexion.php';
 
 $sql = "SELECT libros.id, libros.codigo, libros.titulo, libros.autor, libros.stock, categorias.nombre AS categoria 
         FROM libros 
@@ -112,7 +112,7 @@ $resultado = $conn->query($sql);
                     </div>
                     
                     <div class="mt-4">
-                        <a href="dashboard.php" class="btn btn-outline-secondary">Volver al Panel</a>
+                        <a href="../dashboard.php" class="btn btn-outline-secondary">Volver al Panel</a>
                     </div>
                 </div>
             </div>

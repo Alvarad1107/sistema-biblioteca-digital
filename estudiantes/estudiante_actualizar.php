@@ -1,12 +1,10 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['correo'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
-
-require 'conexion.php';
+require '../config/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
@@ -16,17 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $carrera = $_POST['carrera'];
     $telefono = $_POST['telefono'];
 
-    $sql = "UPDATE estudiantes SET 
-            carnet = '$carnet', 
-            nombre_completo = '$nombre_completo', 
-            correo = '$correo', 
-            carrera = '$carrera', 
-            telefono = '$telefono' 
-            WHERE id = $id";
+    $sql = "UPDATE estudiantes SET carnet = '$carnet', nombre_completo = '$nombre_completo', correo = '$correo', carrera = '$carrera', telefono = '$telefono' WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-       
-        header("Location: student_lista.php"); 
         header("Location: estudiante_lista.php");
         exit();
     } else {

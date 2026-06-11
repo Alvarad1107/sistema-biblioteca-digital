@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-require 'conexion.php';
+require '../config/conexion.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

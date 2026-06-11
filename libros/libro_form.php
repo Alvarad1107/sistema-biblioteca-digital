@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-require 'conexion.php';
+require '../config/conexion.php';
 
 $sql = "SELECT id, nombre FROM categorias";
 $categorias = $conn->query($sql);
@@ -125,7 +125,7 @@ $categorias = $conn->query($sql);
                         </div>
                         
                         <div class="d-flex justify-content-between">
-                            <a href="dashboard.php" class="btn btn-outline-secondary">Volver</a>
+                            <a href="../dashboard.php" class="btn btn-outline-secondary">Volver</a>
                             <button type="submit" class="btn btn-primary px-4">Guardar Libro</button>
                         </div>
                     </form>
