@@ -47,10 +47,16 @@ if (!isset($_SESSION['correo'])) {
 
     <div class="container mb-5">
         <div class="main-card">
-            <h1 class="fw-bold mb-3">Bienvenido, Admin General</h1>
-            <p class="mb-4">Nivel de acceso: <span class="badge-rol">Administrador</span></p>
-            <p class="text-muted mb-5">Panel de administración principal. Selecciona una de las herramientas de abajo para comenzar a trabajar.</p>
-            
+            <h1 class="fw-bold" style="color: #2b3a30;">Bienvenido, <?= htmlspecialchars($_SESSION['nombre_completo']) ?></h1>
+
+<p class="mb-4" style="font-size: 1.1rem;">
+    Nivel de acceso: 
+    <span class="badge rounded-2" style="background-color: #2b3a30; color: #ffffff; padding: 8px 12px; font-weight: normal;">
+        <?= htmlspecialchars($_SESSION['nivel_acceso']) ?>
+    </span>
+</p>
+
+<p class="text-muted mb-5">Panel de administración principal. Selecciona una de las herramientas de abajo para comenzar a trabajar.</p>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="module-card">
