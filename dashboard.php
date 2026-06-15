@@ -67,6 +67,13 @@ if (!isset($_SESSION['correo'])) {
                     </div>
                 </div>
                 <div class="col-md-4">
+                <div class="module-card">
+                    <h4>Préstamos</h4>
+                    <p>Control de salidas y devoluciones.</p>
+                    <a href="prestamos/prestamo_lista.php" class="btn-dark-green">Abrir</a>
+                </div>
+                </div>
+                <div class="col-md-4">
                     <div class="module-card">
                         <h4>Estudiantes</h4>
                         <p>Gestión de usuarios/clientes.</p>
