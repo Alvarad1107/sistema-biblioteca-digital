@@ -47,8 +47,16 @@ if (!isset($_SESSION['correo'])) {
 
     <div class="container mb-5">
         <div class="main-card">
-            <h1 class="fw-bold" style="color: #2b3a30;">Bienvenido, <?= htmlspecialchars($_SESSION['nombre_completo']) ?></h1>
 
+
+    <?php
+        $nombres = explode(' ', $_SESSION['nombre_completo']);
+        $primer_nombre = $nombres[0];
+        $ultima_letra = mb_strtolower(mb_substr($primer_nombre, -1, 1, 'UTF-8'), 'UTF-8');
+        $saludo = ($ultima_letra == 'a') ? 'Bienvenida' : 'Bienvenido';
+    ?>
+        <h1 class="fw-bold" style="color: #2b3a30;"><?= $saludo ?>, <?= htmlspecialchars($_SESSION['nombre_completo']) ?></h1>
+        
 <p class="mb-4" style="font-size: 1.1rem;">
     Nivel de acceso: 
     <span class="badge rounded-2" style="background-color: #2b3a30; color: #ffffff; padding: 8px 12px; font-weight: normal;">
