@@ -75,7 +75,6 @@ $fecha_sugerida = date('Y-m-d', strtotime('+7 days'));
                                     <option value="<?= $lib['id'] ?>"><?= htmlspecialchars($lib['codigo'] . ' - ' . $lib['titulo']) ?> (Stock: <?= $lib['stock'] ?>)</option>
                                 <?php endwhile; ?>
                             </select>
-                            <small class="text-muted mt-2 d-block">💡 <strong>Tip:</strong> Mantén presionada la tecla <strong>Ctrl</strong> (Windows) o <strong>Cmd</strong> (Mac) para seleccionar más de un libro al mismo tiempo.</small>
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center mt-5">
