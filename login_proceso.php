@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($resultado && $resultado->num_rows > 0) {
         $fila = $resultado->fetch_assoc();
         
+        $_SESSION['usuario_id'] = $fila['id'];
         $_SESSION['correo'] = $fila['correo'];
         $_SESSION['nombre_completo'] = $fila['nombre_completo'];
         $_SESSION['nivel_acceso'] = $fila['nivel_acceso'];
