@@ -101,9 +101,6 @@ if (isset($_SESSION['usuario_id'])) {
     <div class="login-container">
         <div class="top-nav">
             <div class="brand">Biblioteca<span>Digital</span></div>
-            <div class="d-flex align-items-center" style="font-size: 0.85rem; color: #555;">
-                ¿No tienes cuenta? <a href="#" class="btn btn-dark-green btn-sm ms-3 px-4 py-2">Registrarse</a>
-            </div>
         </div>
 
         <div class="row align-items-center">
@@ -129,9 +126,6 @@ if (isset($_SESSION['usuario_id'])) {
                     
                     <button type="submit" class="btn btn-dark-green w-100 py-2">Iniciar Sesión</button>
                     
-                    <div class="text-center">
-                        <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
-                    </div>
                 </form>
             </div>
 
