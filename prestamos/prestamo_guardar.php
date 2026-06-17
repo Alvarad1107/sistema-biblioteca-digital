@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     } catch (Exception $e) {
         $conn->rollback();
-        $error_msg = urlencode("Error al registrar el préstamo.");
+        $error_msg = urlencode("Error al registrar el préstamo. Verifique los datos e intente de nuevo.");
         header("Location: prestamo_lista.php?error=$error_msg");
     }
 } else {
