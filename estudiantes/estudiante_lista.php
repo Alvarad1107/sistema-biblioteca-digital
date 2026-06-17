@@ -50,7 +50,9 @@ $resultado = $conn->query($sql);
         <div class="main-card">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="mb-0">Gestión de Estudiantes</h2>
-                <a href="estudiante_form.php" class="btn-dark-green">Registrar Nuevo</a>
+                <?php if ($_SESSION['nivel_acceso'] == 'Administrador' || $_SESSION['nivel_acceso'] == 'Supervisor'): ?>
+                    <a href="estudiante_form.php" class="btn-dark-green">Registrar Nuevo</a>
+                <?php endif; ?>
             </div>
             <div class="mb-4">
                 <input type="text" id="buscador" class="form-control form-control-lg shadow-sm" placeholder="🔍 Escribe para buscar por nombre, categoría, código, etc..." style="border: 2px solid #e2e8f0; border-radius: 10px;">

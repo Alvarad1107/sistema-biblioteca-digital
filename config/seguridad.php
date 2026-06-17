@@ -21,7 +21,7 @@ if ($rol == 'Bibliotecario') {
     ];
     
     if (in_array($archivo_actual, $bloqueados_bibliotecario)) {
-        header("Location: ../dashboard.php"); // Lo rebota al inicio
+        header("Location: ../dashboard.php?error=denegado"); // Lo rebota al inicio
         exit();
     }
 }

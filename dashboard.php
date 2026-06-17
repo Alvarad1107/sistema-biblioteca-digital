@@ -59,6 +59,11 @@ require 'config/seguridad.php';
     </span>
 </p>
 
+<?php if (isset($_GET['error']) && $_GET['error'] == 'denegado'): ?>
+    <div class="alert alert-danger border-0 rounded-3 shadow-sm mb-4">
+        <strong><i class="bi bi-shield-lock"></i> Acceso Denegado:</strong> Tu nivel de usuario no tiene los permisos necesarios para entrar a esa sección o realizar esa acción.
+    </div>
+<?php endif; ?>
 <p class="text-muted mb-5">Panel de administración principal. Selecciona una de las herramientas de abajo para comenzar a trabajar.</p>
             <div class="row g-4">
                 <div class="col-md-4">
