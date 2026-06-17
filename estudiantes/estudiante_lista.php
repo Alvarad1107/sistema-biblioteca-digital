@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['correo'])) {
-    header("Location: ../index.php");
-    exit();
-}
-
+require '../config/seguridad.php';
 require '../config/conexion.php';
 
 $sql = "SELECT * FROM estudiantes";
@@ -80,7 +74,7 @@ $resultado = $conn->query($sql);
                                     <td><?= htmlspecialchars($fila['correo']) ?></td>
                                     <td><?= htmlspecialchars($fila['carrera']) ?></td>
                                     <td><?= htmlspecialchars($fila['telefono']) ?></td>
-                                   <td class="text-nowrap">
+                                    <td class="text-nowrap">
                                         <?php if ($_SESSION['nivel_acceso'] == 'Administrador' || $_SESSION['nivel_acceso'] == 'Supervisor'): ?>
                                             <a href="estudiante_editar.php?id=<?= $fila['id'] ?>" class="btn btn-sm btn-action-edit me-2">Editar</a>
                                         <?php endif; ?>

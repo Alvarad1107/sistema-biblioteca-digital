@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../index.php");
-    exit();
-}
+require '../config/seguridad.php';
 require '../config/conexion.php';
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {

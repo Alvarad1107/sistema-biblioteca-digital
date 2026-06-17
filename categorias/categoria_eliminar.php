@@ -1,11 +1,4 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['correo'])) {
-    header("Location: ../index.php");
-    exit();
-}
-
+require '../config/seguridad.php';
 require '../config/conexion.php';
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -18,7 +11,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         echo "<script>
                 alert('No se puede eliminar esta categoría porque hay libros registrados que la están usando. Elimina o cambia la categoría de esos libros primero.');
                 window.location.href = 'categoria_lista.php';
-              </script>";
+            </script>";
         exit();
     } else {
         $sql = "DELETE FROM categorias WHERE id = $id";

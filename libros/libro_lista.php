@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['correo'])) {
-    header("Location: ../index.php");
-    exit();
-}
-
+require '../config/seguridad.php';
 require '../config/conexion.php';
 
 $sql = "SELECT libros.*, categorias.nombre AS categoria_nombre FROM libros LEFT JOIN categorias ON libros.categoria_id = categorias.id";

@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['correo']) || $_SESSION['nivel_acceso'] != 'Administrador') {
-    header("Location: ../dashboard.php");
-    exit();
-}
-
+require '../config/seguridad.php';
 require '../config/conexion.php';
 
 

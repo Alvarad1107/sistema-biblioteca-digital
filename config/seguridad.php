@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// 1. Si no hay sesión, va para afuera
+// 1. Si no hay sesión, se expulsa al login.
 if (!isset($_SESSION['correo']) || !isset($_SESSION['nivel_acceso'])) {
     header("Location: ../index.php");
     exit();
@@ -40,5 +40,5 @@ if ($rol == 'Supervisor') {
     }
 }
 
-// Nota: El Administrador no tiene bloqueos, pasa directo.
+// El Administrador no tiene bloqueos (solamente no puede eliminar historial de préstamos realizados).
 ?>
