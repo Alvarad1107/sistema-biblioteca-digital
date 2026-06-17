@@ -1,19 +1,30 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
+if (!isset($_SESSION['correo']) || $_SESSION['nivel_acceso'] != 'Administrador') {
+    header("Location: ../dashboard.php");
     exit();
 }
 
 require '../config/conexion.php';
 
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    
     $sql = "DELETE FROM libros WHERE id = $id";
-    $conn->query($sql);
+    
+    if ($conn->query($sql) === TRUE) {
+        
+        header("Location: libro_lista.php");
+        exit();
+    } else {
+        echo "Error al eliminar: " . $conn->error;
+        exit();
+    }
+} else {
+    
+    header("Location: libro_lista.php");
+    exit();
 }
-
-header("Location: libro_lista.php");
-exit();
 ?>
