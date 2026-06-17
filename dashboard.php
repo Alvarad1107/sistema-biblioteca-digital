@@ -91,7 +91,7 @@ require 'config/seguridad.php';
                 </div>
                 <?php if ($_SESSION['nivel_acceso'] == 'Administrador'): ?>
                 <div class="col-md-4">
-                    <div class="module-card" style="border: 2px solid #2b3a30;">
+                    <div class="module-card">
                         <h4>Gestión de Usuarios</h4>
                         <p>Añadir y administrar empleados.</p>
                         <a href="usuarios/usuario_lista.php" class="btn-dark-green">Abrir</a>
