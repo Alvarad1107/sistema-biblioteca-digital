@@ -89,6 +89,24 @@ require 'config/seguridad.php';
                         <a href="estudiantes/estudiante_lista.php" class="btn-dark-green">Abrir</a>
                     </div>
                 </div>
+                <?php if ($_SESSION['nivel_acceso'] == 'Administrador'): ?>
+                <div class="col-md-4">
+                    <div class="module-card" style="border: 2px solid #2b3a30;">
+                        <h4>Gestión de Usuarios</h4>
+                        <p>Añadir y administrar empleados.</p>
+                        <a href="usuarios/usuario_lista.php" class="btn-dark-green">Abrir</a>
+                    </div>
+                </div>
+                <?php endif; ?>
+                <?php if ($_SESSION['nivel_acceso'] == 'Administrador' || $_SESSION['nivel_acceso'] == 'Supervisor'): ?>
+                <div class="col-md-4">
+                    <div class="module-card">
+                        <h4>Reportes</h4>
+                        <p>Estadísticas e historial.</p>
+                        <a href="reportes.php" class="btn-dark-green">Abrir</a>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
