@@ -52,6 +52,9 @@ $resultado = $conn->query($sql);
                 <h2 class="mb-0">Gestión de Estudiantes</h2>
                 <a href="estudiante_form.php" class="btn-dark-green">Registrar Nuevo</a>
             </div>
+            <div class="mb-4">
+                <input type="text" id="buscador" class="form-control form-control-lg shadow-sm" placeholder="🔍 Escribe para buscar por nombre, categoría, código, etc..." style="border: 2px solid #e2e8f0; border-radius: 10px;">
+            </div>
 
             <div class="table-container table-responsive">
                 <table class="table table-hover">
@@ -96,5 +99,25 @@ $resultado = $conn->query($sql);
         </div>
     </div>
 
+
+    <script>
+        // Buscador
+        document.getElementById('buscador').addEventListener('keyup', function() {
+            let filtro = this.value.toLowerCase();
+            let filas = document.querySelectorAll('tbody tr'); // Selecciona todas las filas de la tabla
+            
+            filas.forEach(function(fila) {
+                // Toma todo el texto de la fila (ignora si es código, nombre o categoría)
+                let textoFila = fila.textContent.toLowerCase();
+                
+                // Si el texto de la fila incluye lo que escribimos, la muestra, si no, la oculta
+                if (textoFila.includes(filtro)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

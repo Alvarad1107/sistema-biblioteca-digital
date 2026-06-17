@@ -60,6 +60,9 @@ $resultado = $conn->query($sql);
                 <h2 class="mb-0">Control de Préstamos</h2>
                 <a href="prestamo_form.php" class="btn-dark-green">Registrar Préstamo</a>
             </div>
+            <div class="mb-4">
+                <input type="text" id="buscador" class="form-control form-control-lg shadow-sm" placeholder="🔍 Escribe para buscar por nombre, categoría, código, etc..." style="border: 2px solid #e2e8f0; border-radius: 10px;">
+            </div>
 
             <?php if (isset($_GET['status']) && $_GET['status'] == 'devuelto'): ?>
                 <div class="alert alert-success border-0 rounded-3 shadow-sm">Los libros han sido devueltos y el stock se ha actualizado correctamente.</div>
@@ -117,5 +120,24 @@ $resultado = $conn->query($sql);
             </div>
         </div>
     </div>
+    <script>
+        // Buscador en tiempo real
+        document.getElementById('buscador').addEventListener('keyup', function() {
+            let filtro = this.value.toLowerCase();
+            let filas = document.querySelectorAll('tbody tr'); // Selecciona todas las filas de la tabla
+            
+            filas.forEach(function(fila) {
+                // Toma todo el texto de la fila (ignora si es código, nombre o categoría)
+                let textoFila = fila.textContent.toLowerCase();
+                
+                // Si el texto de la fila incluye lo que escribimos, la muestra, si no, la oculta
+                if (textoFila.includes(filtro)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
