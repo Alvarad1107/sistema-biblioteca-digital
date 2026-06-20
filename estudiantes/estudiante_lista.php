@@ -55,7 +55,7 @@ $resultado = $conn->query($sql);
                 <?php endif; ?>
             </div>
             <div class="mb-4">
-                <input type="text" id="buscador" class="form-control form-control-lg shadow-sm" placeholder="🔍 Escribe para buscar por nombre, categoría, código, etc..." style="border: 2px solid #e2e8f0; border-radius: 10px;">
+                <input type="text" id="buscador" class="form-control form-control-lg shadow-sm" placeholder="🔍 Escribe para buscar por nombre, carnet, etc..." style="border: 2px solid #e2e8f0; border-radius: 10px;">
             </div>
 
             <div class="table-container table-responsive">
