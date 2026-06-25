@@ -18,12 +18,24 @@ $resultado = $conn->query($sql);
         .navbar-brand span { color: #a8bba1; font-weight: 400; }
         .btn-outline-light-custom { border: 1px solid #ffffff; color: #ffffff; border-radius: 6px; transition: all 0.2s; }
         .btn-outline-light-custom:hover { background-color: #ffffff; color: #2b3a30; }
+        .btn-logout { border: 1px solid #ff6b6b; color: #ff6b6b; border-radius: 6px; transition: all 0.2s; }
+        .btn-logout:hover { background-color: #ff6b6b; color: #ffffff; }
         .main-card { background-color: #f4f1ea; border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2.5rem; }
+        h2 { color: #2b3a30; font-weight: 700; }
         .btn-dark-green { background-color: #2b3a30; color: #ffffff; border: none; border-radius: 6px; font-weight: 500; padding: 0.6rem 1.5rem; text-decoration: none; display: inline-block; }
         .btn-dark-green:hover { background-color: #1e2922; color: #ffffff; }
         .table-container { background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; margin-top: 1.5rem; }
+        .table { margin-bottom: 0; }
         .table th { background-color: #2b3a30; color: #ffffff; font-weight: 600; padding: 16px; border: none; }
         .table td { padding: 16px; vertical-align: middle; border-bottom: 1px solid #eedec3; color: #4a4a4a; }
+        .table-hover tbody tr:hover { background-color: #faf9f6; }
+        .btn-action-edit { color: #2b3a30; border: 1px solid #2b3a30; font-weight: 600; border-radius: 6px; }
+        .btn-action-edit:hover { background-color: #2b3a30; color: #ffffff; }
+
+        /* Etiquetas de roles personalizadas */
+        .badge-admin { background-color: #2b3a30; color: #ffffff; padding: 0.5em 0.8em; font-weight: 500; letter-spacing: 0.3px; }
+        .badge-super { background-color: #63705b; color: #ffffff; padding: 0.5em 0.8em; font-weight: 500; letter-spacing: 0.3px; }
+        .badge-biblio { background-color: #a8bba1; color: #1e2922; padding: 0.5em 0.8em; font-weight: 600; letter-spacing: 0.3px; }
     </style>
 </head>
 <body>
@@ -31,7 +43,8 @@ $resultado = $conn->query($sql);
         <div class="container">
             <a class="navbar-brand" href="../dashboard.php">Biblioteca<span>Digital</span></a>
             <div class="d-flex">
-                <a href="../dashboard.php" class="btn btn-sm btn-outline-light-custom px-3 py-2">Volver al Panel</a>
+                <a href="../dashboard.php" class="btn btn-sm btn-outline-light-custom me-3 px-3 py-2">Volver al Panel</a>
+                <a href="../logout.php" class="btn btn-sm btn-logout px-3 py-2">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
@@ -76,11 +89,11 @@ $resultado = $conn->query($sql);
                                     <td><?= htmlspecialchars($fila['correo']) ?></td>
                                     <td>
                                         <?php if($fila['nivel_acceso'] == 'Administrador'): ?>
-                                            <span class="badge bg-danger">Administrador</span>
+                                            <span class="badge badge-admin">Administrador</span>
                                         <?php elseif($fila['nivel_acceso'] == 'Supervisor'): ?>
-                                            <span class="badge bg-warning text-dark">Supervisor</span>
+                                            <span class="badge badge-super">Supervisor</span>
                                         <?php else: ?>
-                                            <span class="badge bg-primary">Bibliotecario</span>
+                                            <span class="badge badge-biblio">Bibliotecario</span>
                                         <?php endif; ?>
                                     </td>
                                     <td>

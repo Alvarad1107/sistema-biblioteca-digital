@@ -11,6 +11,7 @@ $sql_lib = "SELECT id, codigo, titulo, stock FROM libros WHERE stock > 0 ORDER B
 $libros = $conn->query($sql_lib);
 
 // Fecha límite sugerida (7 días después de hoy)
+$fecha_hoy = date('Y-m-d');
 $fecha_sugerida = date('Y-m-d', strtotime('+7 days'));
 ?>
 <!DOCTYPE html>
@@ -61,8 +62,7 @@ $fecha_sugerida = date('Y-m-d', strtotime('+7 days'));
                         
                         <div class="mb-4">
                             <label class="form-label">Fecha Prevista de Devolución</label>
-                            <input type="date" class="form-control" name="fecha_devolucion_prevista" value="<?= $fecha_sugerida ?>" required>
-                        </div>
+                        <input type="date" class="form-control" name="fecha_devolucion_prevista" value="<?= $fecha_sugerida ?>" min="<?= $fecha_hoy ?>" required></div>
 
                         <div class="mb-4">
                             <label class="form-label">Seleccionar Libros (Disponibles)</label>

@@ -46,6 +46,30 @@ $res_top = $conn->query($sql_top);
         .table-container { background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; margin-top: 1.5rem; }
         .table th { background-color: #2b3a30; color: #ffffff; font-weight: 600; padding: 16px; border: none; }
         .table td { padding: 16px; vertical-align: middle; border-bottom: 1px solid #eedec3; color: #4a4a4a; }
+        body { background-color: #e2e8f0; color: #333333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .navbar { background-color: #2b3a30; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 0.8rem 0; }
+        .navbar-brand { color: #ffffff !important; font-weight: 700; font-size: 1.3rem; }
+        .navbar-brand span { color: #a8bba1; font-weight: 400; }
+        .btn-outline-light-custom { border: 1px solid #ffffff; color: #ffffff; border-radius: 6px; transition: all 0.2s; }
+        .btn-outline-light-custom:hover { background-color: #ffffff; color: #2b3a30; }
+        .btn-logout { border: 1px solid #ff6b6b; color: #ff6b6b; border-radius: 6px; transition: all 0.2s; }
+        .btn-logout:hover { background-color: #ff6b6b; color: #ffffff; }
+        .main-card { background-color: #f4f1ea; border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2.5rem; }
+        h2 { color: #2b3a30; font-weight: 700; }
+        .btn-dark-green { background-color: #2b3a30; color: #ffffff; border: none; border-radius: 6px; font-weight: 500; padding: 0.6rem 1.5rem; text-decoration: none; display: inline-block; }
+        .btn-dark-green:hover { background-color: #1e2922; color: #ffffff; }
+        .table-container { background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; margin-top: 1.5rem; }
+        .table { margin-bottom: 0; }
+        .table th { background-color: #2b3a30; color: #ffffff; font-weight: 600; padding: 16px; border: none; }
+        .table td { padding: 16px; vertical-align: middle; border-bottom: 1px solid #eedec3; color: #4a4a4a; }
+        .table-hover tbody tr:hover { background-color: #faf9f6; }
+        .btn-action-edit { color: #2b3a30; border: 1px solid #2b3a30; font-weight: 600; border-radius: 6px; }
+        .btn-action-edit:hover { background-color: #2b3a30; color: #ffffff; }
+        /* Colores personalizados para las métricas */
+        .border-custom-dark { border-bottom-color: #2b3a30 !important; }
+        .border-custom-mid { border-bottom-color: #63705b !important; }
+        .border-custom-light { border-bottom-color: #a8bba1 !important; }
+        .badge-custom { background-color: #2b3a30; color: #ffffff; }
     </style>
 </head>
 <body>
@@ -53,7 +77,8 @@ $res_top = $conn->query($sql_top);
         <div class="container">
             <a class="navbar-brand" href="dashboard.php">Biblioteca<span>Digital</span></a>
             <div class="d-flex">
-                <a href="dashboard.php" class="btn btn-sm btn-outline-light-custom px-3 py-2">Volver al Panel</a>
+                <a href="dashboard.php" class="btn btn-sm btn-outline-light-custom me-3 px-3 py-2">Volver al Panel</a>
+                <a href="logout.php" class="btn btn-sm btn-logout px-3 py-2">Cerrar Sesión</a>
             </div>
         </div>
     </nav>
@@ -64,19 +89,19 @@ $res_top = $conn->query($sql_top);
             
             <div class="row g-4 mb-5">
                 <div class="col-md-4">
-                    <div class="stat-card border-bottom border-success border-4">
+                    <div class="stat-card border-bottom border-4 border-custom-dark">
                         <div class="stat-number"><?= htmlspecialchars($total_disponibles) ?></div>
                         <div class="stat-label">Libros Disponibles en Inventario</div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="stat-card border-bottom border-warning border-4">
+                    <div class="stat-card border-bottom border-4 border-custom-mid">
                         <div class="stat-number"><?= htmlspecialchars($total_prestados) ?></div>
                         <div class="stat-label">Libros Prestados (Sin devolver)</div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="stat-card border-bottom border-info border-4">
+                    <div class="stat-card border-bottom border-4 border-custom-light">
                         <div class="stat-number"><?= htmlspecialchars($total_estudiantes) ?></div>
                         <div class="stat-label">Estudiantes con Préstamos Activos</div>
                     </div>
@@ -99,7 +124,7 @@ $res_top = $conn->query($sql_top);
                                 <tr>
                                     <td class="fw-bold"><?= htmlspecialchars($fila['codigo']) ?></td>
                                     <td><?= htmlspecialchars($fila['titulo']) ?></td>
-                                    <td class="text-center h5 mb-0"><span class="badge bg-success rounded-pill px-3"><?= htmlspecialchars($fila['veces_prestado']) ?></span></td>
+                                    <td class="text-center h5 mb-0"><span class="badge badge-custom rounded-pill px-3"><?= htmlspecialchars($fila['veces_prestado']) ?></span></td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php else: ?>

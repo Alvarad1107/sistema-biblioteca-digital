@@ -1,4 +1,7 @@
 <?php
+// Forzar la zona horaria local para todo el sistema
+date_default_timezone_set('America/El_Salvador');
+
 $host = "localhost";
 $user = "root";
 $pass = "";
